@@ -1,0 +1,44 @@
+{
+  "selected_model": "XGBoost",
+  "model_version": "v1.2.0-hydro-physics",
+  "trained_date": "2026-10-13T21:26:33.582002",
+  "training_samples": 2400,
+  "test_samples": 600,
+  "metrics": {
+    "mae": 28000.27,
+    "rmse": 44732.94,
+    "r2_score": 0.9932,
+    "mape": 5.25
+  },
+  "all_candidate_metrics": {
+    "DummyBaseline": {
+      "mae": 393543.22,
+      "rmse": 567093.23,
+      "r2_score": -0.0985,
+      "mape": 121.59
+    },
+    "RandomForest": {
+      "mae": 37666.72,
+      "rmse": 59244.09,
+      "r2_score": 0.988,
+      "mape": 7.37
+    },
+    "GradientBoosting": {
+      "mae": 29091.48,
+      "rmse": 46933.67,
+      "r2_score": 0.9925,
+      "mape": 5.41
+    },
+    "XGBoost": {
+      "mae": 28000.27,
+      "rmse": 44732.94,
+      "r2_score": 0.9932,
+      "mape": 5.25
+    }
+  },
+  "residual_std_kg": 44567.73,
+  "target_col": "fuel_consumption_kg",
+  "target_unit": "kg per voyage",
+  "data_provenance": "NaviQGreen Hydrodynamic Physics-Informed Fleet Dataset (Calibrated on IMO 4th GHG Study Baselines)",
+  "limitations": "Model assumes displacement hull forms between 8-25 knots under Douglas sea states 1-6. Not calibrated for high-speed planing craft or extreme arctic ice navigation."
+}

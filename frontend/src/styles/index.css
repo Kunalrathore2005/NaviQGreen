@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg-primary: #060D17;
+    --color-surface-card: #0E213A;
+    --color-surface-elevated: #162C4A;
+    --color-accent-cyan: #00B4D8;
+    --color-accent-emerald: #10B981;
+  }
+
+  body {
+    background-color: #060D17;
+    color: #F1F5F9;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B192C;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1E3A5F;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00B4D8;
+}
+
+@layer components {
+  /* Reusable Maritime UI utility classes */
+  .card-maritime {
+    background: linear-gradient(135deg, rgba(14, 33, 58, 0.8) 0%, rgba(11, 25, 44, 0.95) 100%);
+    border: 1px solid rgba(0, 180, 216, 0.15);
+    box-shadow: 0 4px 20px -2px rgba(6, 13, 23, 0.6);
+    backdrop-filter: blur(12px);
+    border-radius: 0.75rem;
+  }
+
+  .card-maritime:hover {
+    border-color: rgba(0, 180, 216, 0.35);
+    box-shadow: 0 8px 30px -4px rgba(0, 180, 216, 0.12);
+  }
+
+  .btn-cyan {
+    background: linear-gradient(135deg, #00B4D8 0%, #0077B6 100%);
+    color: #FFFFFF;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 2px 10px rgba(0, 180, 216, 0.3);
+  }
+
+  .btn-cyan:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 4px 18px rgba(0, 180, 216, 0.5);
+  }
+
+  .btn-emerald {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    color: #FFFFFF;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 2px 10px rgba(16, 185, 129, 0.3);
+  }
+
+  .btn-emerald:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 4px 18px rgba(16, 185, 129, 0.5);
+  }
+
+  .btn-ghost-marine {
+    background: rgba(30, 58, 95, 0.3);
+    border: 1px solid rgba(0, 180, 216, 0.2);
+    color: #E2E8F0;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    transition: all 0.2s ease;
+  }
+
+  .btn-ghost-marine:hover {
+    background: rgba(0, 180, 216, 0.15);
+    border-color: rgba(0, 180, 216, 0.4);
+    color: #38BDF8;
+  }
+
+  .input-maritime {
+    background: rgba(11, 25, 44, 0.8);
+    border: 1px solid rgba(30, 58, 95, 0.8);
+    color: #F8FAFC;
+    border-radius: 0.5rem;
+    padding: 0.625rem 0.875rem;
+    outline: none;
+    transition: all 0.2s ease;
+  }
+
+  .input-maritime:focus {
+    border-color: #00B4D8;
+    box-shadow: 0 0 0 2px rgba(0, 180, 216, 0.25);
+  }
+
+  /* Custom Maritime Leaflet Dark Theme */
+  .leaflet-container {
+    background-color: #060D17 !important;
+  }
+
+  .maritime-dark-tile {
+    filter: brightness(0.9) contrast(1.15) hue-rotate(195deg) saturate(0.8);
+  }
+
+  .maritime-ocean-tile {
+    filter: brightness(0.85) contrast(1.1);
+  }
+
+  .maritime-osm-dark {
+    filter: invert(100%) hue-rotate(180deg) brightness(85%) contrast(90%);
+  }
+}
+
+
+

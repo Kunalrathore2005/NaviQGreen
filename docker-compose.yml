@@ -1,0 +1,75 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: naviqgreen-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-naviq}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-naviqgreen_secure_pass}
+      POSTGRES_DB: ${POSTGRES_DB:-naviqgreen_db}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U naviq -d naviqgreen_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - naviq-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: naviqgreen-backend
+    restart: always
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      - PROJECT_NAME=NaviQGreen
+      - ENVIRONMENT=production
+      - DEBUG=false
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-naviq}:${POSTGRES_PASSWORD:-naviqgreen_secure_pass}@postgres:5432/${POSTGRES_DB:-naviqgreen_db}
+      - SECRET_KEY=${SECRET_KEY:-naviqgreen-super-secret-key-change-in-production-only}
+      - CORS_ORIGINS=http://localhost:5173,http://localhost:3000,http://localhost:80,http://127.0.0.1:5173,http://127.0.0.1:80
+    ports:
+      - "8000:8000"
+    volumes:
+      - backend-artifacts:/app/artifacts
+      - backend-data:/app/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+    networks:
+      - naviq-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: naviqgreen-frontend
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
+    networks:
+      - naviq-network
+
+volumes:
+  pgdata:
+    driver: local
+  backend-artifacts:
+    driver: local
+  backend-data:
+    driver: local
+
+networks:
+  naviq-network:
+    driver: bridge
+

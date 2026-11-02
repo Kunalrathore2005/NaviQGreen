@@ -1,0 +1,7 @@
+port_code,port_name,country,latitude,longitude,shore_power_available,shore_power_capacity_kw,electricity_price_kwh_usd,grid_emission_factor_kg_co2_per_kwh,available_fuels,data_source
+SGSIN,Port of Singapore,Singapore,1.29027,103.851959,True,12000.0,0.17,0.4,"[""VLSFO"", ""MGO"", ""LNG"", ""Methanol"", ""Ammonia"", ""Hydrogen""]",Maritime and Port Authority of Singapore (MPA)
+NLRTM,Port of Rotterdam,Netherlands,51.92442,4.477733,True,25000.0,0.19,0.28,"[""VLSFO"", ""MGO"", ""LNG"", ""Methanol"", ""Ammonia"", ""Hydrogen""]",Port of Rotterdam Authority Sustainability Report
+CNSHA,Port of Shanghai,China,31.230416,121.473701,True,18000.0,0.14,0.52,"[""VLSFO"", ""MGO"", ""LNG"", ""Methanol""]",Shanghai International Port Group (SIPG)
+USLAX,Port of Los Angeles,United States,33.743183,-118.267254,True,20000.0,0.21,0.22,"[""VLSFO"", ""MGO"", ""LNG"", ""Methanol"", ""Hydrogen""]",Port of Los Angeles Clean Air Action Plan (CAAP)
+AEJEA,Port of Jebel Ali (Dubai),United Arab Emirates,24.985714,55.02729,False,0.0,0.13,0.48,"[""VLSFO"", ""MGO"", ""LNG""]",DP World Annual ESG Disclosure
+INNSA,Jawaharlal Nehru Port (Nhava Sheva),India,18.949646,72.951592,True,6000.0,0.12,0.65,"[""VLSFO"", ""MGO"", ""LNG""]",JNPA Green Port Initiative Report
